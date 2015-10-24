@@ -16,6 +16,11 @@ import com.microsoft.windowsazure.mobileservices.*;
 
 import java.net.MalformedURLException;
 
+import com.database.test.*;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private MobileServiceClient mClient;
@@ -35,6 +40,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     "cNsrvVDiQFZLIvfJXQbChGrKlZrckT34",
                     this
             );
+            Test2 mTest = new Test2();
+            mTest.tttest = "他媽的就說測試啦2";
+            MobileServiceTable mTable = mClient.getTable(Test2.class);
+//            mTable.update();
+
+            mClient.getTable(Test2.class).insert(mTest, new TableOperationCallback<Test2>() {
+                public void onCompleted(Test2 entity, Exception exception, ServiceFilterResponse response) {
+                    if (exception == null) {
+                        // Insert succeeded
+                    } else {
+                        // Insert failed
+                        exception.printStackTrace();
+                    }
+                }
+            });
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
