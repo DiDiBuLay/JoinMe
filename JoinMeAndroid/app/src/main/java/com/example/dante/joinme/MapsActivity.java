@@ -3,7 +3,11 @@ package com.example.dante.joinme;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,6 +21,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.microsoft.windowsazure.mobileservices.*;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.database.test.*;
@@ -25,9 +31,22 @@ import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 import com.microsoft.windowsazure.mobileservices.table.query.ExecutableQuery;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import yalantis.com.sidemenu.interfaces.Resourceble;
+import yalantis.com.sidemenu.interfaces.ScreenShotable;
+import yalantis.com.sidemenu.model.SlideMenuItem;
+import yalantis.com.sidemenu.util.ViewAnimator;
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, ViewAnimator.ViewAnimatorListener {
     private GoogleMap mMap;
     private MobileServiceClient mClient;
+
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle drawerToggle;
+    private List<SlideMenuItem> list = new ArrayList<>();
+    private ContentFragment contentFragment;
+    private ViewAnimator viewAnimator;
+    private int res = R.drawable.content_music;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,5 +123,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(12), 1000, null);
+    }
+
+    @Override
+    public ScreenShotable onSwitch(Resourceble slideMenuItem, ScreenShotable screenShotable, int position) {
+        return null;
+    }
+
+    @Override
+    public void disableHomeButton() {
+
+    }
+
+    @Override
+    public void enableHomeButton() {
+
+    }
+
+    @Override
+    public void addViewToContainer(View view) {
+
     }
 }

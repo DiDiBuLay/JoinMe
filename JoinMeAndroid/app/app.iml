@@ -148,5 +148,6 @@
     <orderEntry type="library" exported="" name="play-services-fitness-8.1.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-wearable-8.1.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-plus-8.1.0" level="project" />
+    <orderEntry type="module" module-name="library_side_menu" exported="" />
   </component>
 </module>
