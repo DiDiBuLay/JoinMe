@@ -8,13 +8,77 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="48dp"></android.support.v7.widget.Toolbar>
+        android:minHeight="48dp">
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/DefaultToolbarTitle"
+            android:text="@string/app_name"/>
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_dl_toolbar_title"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_near"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/green_btn"
+            android:text="附近的團"/>
+
+        <Button
+            android:id="@+id/btn_joined"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="參加的團"/>
+
+        <Button
+            android:id="@+id/btn_ijo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="我揪的團"/>
+
+        <Button
+            android:id="@+id/btn_new_ijo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="新增揪團"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MapsActivity"/>
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:context=".MapsActivity"/>
+    </LinearLayout>
+
 </LinearLayout>

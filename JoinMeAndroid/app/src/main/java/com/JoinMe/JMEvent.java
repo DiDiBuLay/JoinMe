@@ -2,22 +2,22 @@ package com.JoinMe;
 
 import com.cloud.JMCloud;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by dante on 2015/10/25.
  */
-public class JMEvent {
+public class JMEvent implements Serializable {
     private String id;
-    private String title;
-    private String content;
-    private Date start_time;
-    private Date end_time;
-    private int estimate_num;
-    private int current_num;
-    private double latitude;
-    private double longitude;
-    private String owner_id;
+    private String title = "title";
+    private String content = "descripfdsafdsafdsafdsafdsafdsafdsfsdafasdfdsafdsgdsagdsafdsagfdsagdsafdsafdsafdsafdsafsdafdsafdsafdsafsdafsdafdsafsdafdsafdsafdsafsdation";
+    private String time = "123";
+    private int estimate_num = 5;
+    private int current_num = 3;
+    private double latitude = 333.5;
+    private double longitude = 123.53;
+    private String owner_id = "123";
 
     public String getId() {
         return id;
@@ -31,12 +31,8 @@ public class JMEvent {
         return content;
     }
 
-    public Date getStart_time() {
-        return start_time;
-    }
-
-    public Date getEnd_time() {
-        return end_time;
+    public String getTime() {
+        return time;
     }
 
     public int getEstimate_num() {
