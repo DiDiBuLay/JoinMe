@@ -2,16 +2,18 @@ package com.JoinMe;
 
 import com.cloud.JMCloud;
 
+import java.io.Serializable;
+
 /**
  * Created by dante on 2015/10/25.
  */
-public class JMEmergency {
-    private String id;
+public class emergency implements Serializable {
+    private int id;
     private double latitude;
     private double longitude;
-    private String owner_id;
+    private int owner_id;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -23,8 +25,8 @@ public class JMEmergency {
         return longitude;
     }
 
-    public JMUser getOwner() {
+    public void getOwner(JMCloud.OnCloudResultListener listener) {
         JMCloud cloud = JMCloud.getInstance();
-        return cloud.getUser(owner_id);
+        cloud.getUser(owner_id, listener);
     }
 }

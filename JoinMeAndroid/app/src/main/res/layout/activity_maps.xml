@@ -14,6 +14,14 @@
             android:id="@+id/toolbar_title"
             style="@style/DefaultToolbarTitle"
             android:text="@string/app_name"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="開始揪團"
+            android:textStyle="bold"
+            android:visibility="gone"/>
     </android.support.v7.widget.Toolbar>
 
     <View
@@ -68,8 +76,9 @@
         <FrameLayout
             android:id="@+id/detail_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="560dp"
+            android:layout_weight="1"
+            android:visibility="gone"/>
 
         <fragment
             android:id="@+id/map"

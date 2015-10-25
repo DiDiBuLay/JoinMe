@@ -5,13 +5,13 @@
               android:orientation="vertical"
               tools:context="com.example.dante.joinme.DefaultFragment">
 
-    <TextView
-        android:id="@+id/default_fragment_title"
+    <EditText
+        android:id="@+id/edit_fragment_title"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center_vertical"
-        android:text="@string/hello_blank_fragment"
+        android:hint="我想揪.."
         android:textStyle="bold"/>
 
 
@@ -22,7 +22,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -32,12 +32,11 @@
             android:gravity="center_vertical"
             android:text="時間："/>
 
-        <TextView
-            android:id="@+id/default_fragment_time"
+        <EditText
+            android:id="@+id/edit_fragment_time"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="@string/hello_blank_fragment"/>
+            android:gravity="center_vertical"/>
     </LinearLayout>
 
     <View
@@ -47,7 +46,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -57,12 +56,11 @@
             android:gravity="center_vertical"
             android:text="地點："/>
 
-        <TextView
-            android:id="@+id/default_fragment_location"
+        <EditText
+            android:id="@+id/edit_fragment_location"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="@string/hello_blank_fragment"/>
+            android:gravity="center_vertical"/>
     </LinearLayout>
 
     <View
@@ -72,7 +70,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -80,14 +78,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="參加/上限人數："/>
+            android:text="上限人數："/>
 
-        <TextView
-            android:id="@+id/default_fragment_people"
+        <EditText
+            android:id="@+id/edit_fragment_people"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="@string/hello_blank_fragment"/>
+            android:gravity="center_vertical"/>
     </LinearLayout>
 
     <View
@@ -95,12 +92,12 @@
         android:layout_height="1dp"
         android:background="@color/gray_dl_toolbar_title"/>
 
-    <TextView
-        android:id="@+id/default_fragment_description"
+    <EditText
+        android:id="@+id/edit_fragment_description"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:layout_weight="1"
-        android:text="@string/hello_blank_fragment"/>
+        android:hint="多些描述.."/>
 
 </LinearLayout>

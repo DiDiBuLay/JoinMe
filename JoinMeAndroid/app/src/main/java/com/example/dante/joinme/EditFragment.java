@@ -4,39 +4,47 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import com.JoinMe.event;
 
-public class DefaultFragment extends Fragment {
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link EditFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link EditFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class EditFragment extends Fragment {
     private static final String KEY_EVENT = "event";
 
     private OnFragmentInteractionListener mListener;
 
-    private static event sEvent;
-    private static TextView sTitle, sTime, sLocation, sPeople, sDescription;
+    private event mEvent;
+    private EditText mTitle, mTime, mLocation, mPeople, mDescription;
 
     // TODO: Rename and change types and number of parameters
-    public static DefaultFragment newInstance(event event) {
-        DefaultFragment fragment = new DefaultFragment();
+    public static EditFragment newInstance(event event) {
+        EditFragment fragment = new EditFragment();
         Bundle args = new Bundle();
         args.putSerializable(KEY_EVENT, event);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public DefaultFragment() {
+    public EditFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            sEvent = (event) getArguments().getSerializable(KEY_EVENT);
+            mEvent = (event) getArguments().getSerializable(KEY_EVENT);
         }
     }
 
@@ -44,7 +52,7 @@ public class DefaultFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View layout = inflater.inflate(R.layout.fragment_default, container, false);
+        View layout = inflater.inflate(R.layout.fragment_edit, container, false);
         initialComponent(layout);
         return layout;
     }
@@ -89,38 +97,18 @@ public class DefaultFragment extends Fragment {
     }
 
     private void initialComponent(View view) {
-        sTitle = (TextView) view.findViewById(R.id.default_fragment_title);
-        sTime = (TextView) view.findViewById(R.id.default_fragment_time);
-        sLocation = (TextView) view.findViewById(R.id.default_fragment_location);
-        sPeople = (TextView) view.findViewById(R.id.default_fragment_people);
-        sDescription = (TextView) view.findViewById(R.id.default_fragment_description);
+        mTitle = (EditText) view.findViewById(R.id.edit_fragment_title);
+        mTime = (EditText) view.findViewById(R.id.edit_fragment_time);
+        mLocation = (EditText) view.findViewById(R.id.edit_fragment_location);
+        mPeople = (EditText) view.findViewById(R.id.edit_fragment_people);
+        mDescription = (EditText) view.findViewById(R.id.edit_fragment_description);
 
-        if (sEvent != null) {
-            sTitle.setText(sEvent.getTitle());
-            sTime.setText(sEvent.getTime());
-            sLocation.setText("( " + sEvent.getLatitude() + " , " + sEvent.getLongitude() + " )");
-            sPeople.setText(sEvent.getEstimate_num() + "");
-            sDescription.setText(sEvent.getContent());
-        }
-    }
-
-    public static void updateUi(event event) {
-        try {
-            Log.e("lala", "start");
-            sEvent = event;
-            if (sEvent != null) {
-                Log.e("lala", "success");
-                sTitle.setText(sEvent.getTitle());
-                sTime.setText(sEvent.getTime());
-                sLocation.setText("( " + sEvent.getLatitude() + " , " + sEvent.getLongitude() + " )");
-                sPeople.setText(sEvent.getEstimate_num() + "");
-                sDescription.setText(sEvent.getContent());
-            } else {
-                Log.e("lala", "sEvent is null.");
-            }
-        } catch (NullPointerException e) {
-            Log.e("lala", "failed");
-            // I don't want to do anyThingXD
+        if (mEvent != null) {
+            mTitle.setText(mEvent.getTitle());
+            mTime.setText(mEvent.getTime());
+            mLocation.setText("( " + mEvent.getLatitude() + " , " + mEvent.getLongitude() + " )");
+            mPeople.setText(mEvent.getCurrent_num() + "/" + mEvent.getEstimate_num());
+            mDescription.setText(mEvent.getContent());
         }
     }
 }
